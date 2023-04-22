@@ -60,6 +60,14 @@ class SlidesContainer extends Component {
   onChangeHeading = event => {
     this.setState(prevState => ({
       activeSlide: {...prevState.activeSlide, heading: event.target.value},
+       slidesList: [
+        ...prevState.slidesList.map(eachSlide => {
+          if (eachSlide.id === activeSlide.id) {
+            return {...eachSlide, heading: event.target.value}
+          }
+          return eachSlide
+        }),
+      ],
     }))
   }
 
@@ -80,6 +88,14 @@ class SlidesContainer extends Component {
     const {activeSlide} = this.state
     this.setState({
       activeSlide: {...activeSlide, description: event.target.value},
+      slidesList: [
+        ...slidesList.map(eachSlide => {
+          if (eachSlide.id === activeSlide.id) {
+            return {...eachSlide, description: event.target.value}
+          }
+          return eachSlide
+        }),
+      ],
     })
   }
 
