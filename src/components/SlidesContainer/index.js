@@ -117,7 +117,12 @@ class SlidesContainer extends Component {
     const {slidesList, activeSlide} = this.state
     console.log(slidesList.indexOf(activeSlide))
 
-    const activeIndex = slidesList.indexOf(activeSlide) + 1
+    const activeIndex = slidesList.findIndex(eachList => {
+      if (eachList.id === activeSlide.id) {
+        return true
+      }
+      return false
+    })
 
     const newItem = {
       id: v4(),
@@ -141,7 +146,13 @@ class SlidesContainer extends Component {
       isInputDescriptionActive,
       slidesList,
     } = this.state
-    console.log(activeSlide)
+    const activeIndex = slidesList.findIndex(eachList => {
+      if (eachList.id === activeSlide.id) {
+        return true
+      }
+      return false
+    })
+    console.log(activeIndex)
     const {heading, description} = activeSlide
     return (
       <div className="slides-container">
