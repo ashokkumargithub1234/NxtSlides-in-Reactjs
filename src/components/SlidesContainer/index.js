@@ -58,6 +58,7 @@ class SlidesContainer extends Component {
   }
 
   onChangeHeading = event => {
+    const {activeSlide} = this.state
     this.setState(prevState => ({
       activeSlide: {...prevState.activeSlide, heading: event.target.value},
        slidesList: [
@@ -85,7 +86,7 @@ class SlidesContainer extends Component {
   }
 
   onChangeDescription = event => {
-    const {activeSlide} = this.state
+    const {activeSlide,activeSlide} = this.state
     this.setState({
       activeSlide: {...activeSlide, description: event.target.value},
       slidesList: [
